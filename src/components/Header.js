@@ -1,4 +1,7 @@
 import '../App.css'
+import ProjectsSection from './ProjectsSection';
+import ContactMeSection from './ContactMeSection'
+import { Routes, Route, Link } from 'react-router-dom';
 import React, { useEffect,useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -119,11 +122,14 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
-              <a href="/#projects" onClick ={handleClick("projects")} className ="smooth">Projects</a>
-              <a href="/#contact-me" onClick ={handleClick("contactme")} className="smooth" >Contact Me</a>
-              
+              <Link to="/#projects" onClick ={handleClick("projects")} className ="smooth">Projects</Link>
+              <Link to="/#contact-me" onClick ={handleClick("contactme")} className="smooth" >Contact Me</Link>
             </HStack>
           </nav>
+          <Routes>
+            <Route path="/#projects" element={<ProjectsSection />}></Route>
+            <Route path ="/#contact-me" element={<ContactMeSection />}></Route>
+          </Routes>
         </HStack>
       </Box>
     </Box>
