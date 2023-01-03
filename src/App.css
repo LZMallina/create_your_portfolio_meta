@@ -1,0 +1,26 @@
+.navBar{
+  transform:translateY(-200px)
+}
+
+.icon{
+  font-size:1.5rem;
+}
+.icon, .smooth{
+  padding:5px 10px 5px 10px;
+  border-radius:5px;
+}
+
+.icon:hover,.smooth:hover{
+  background:white;
+  color:black;
+}
+.cardBox{
+  background:white;
+  color:black;
+  border-radius:10px;
+}
+.selop{
+  color:blue;
+}
+
+
