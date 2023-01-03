@@ -119,8 +119,8 @@ const Header = () => {
             </HStack>
           </nav>
           <Switch>
-            <Route path="/#projects" element={<ProjectsSection />}></Route>
-            <Route path ="/#contact-me" element={<ContactMeSection />}></Route>
+            <Route exact path="/#projects" element={<ProjectsSection />}></Route>
+            <Route exact path ="/#contact-me" element={<ContactMeSection />}></Route>
           </Switch>
         </HStack>
       </Box>
