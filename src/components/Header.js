@@ -1,7 +1,7 @@
 import '../App.css'
 import ProjectsSection from './ProjectsSection';
 import ContactMeSection from './ContactMeSection'
-import { Routes, Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import React, { useEffect,useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -66,23 +66,14 @@ const Header = () => {
     
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
-    /*
+    
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-    }*/
-    //The above is code provided by meta.  Scrolling is smooth, but it get pass the heading of the section.  Need to subtract navbar pixels from the top of each heading. scrollIntoView does not allow location adjustment.  The code below solve this problem.
-    const location = element.offsetTop;
-    
-    window.scrollTo({
-      left: 0,
-      top: location - 80,
-      behavior: 'smooth'
-    })
-  };
-
+    }
+  }
   //display icons
   const icons = socials.map((i) => {
     return <a href={i.url}>
@@ -122,14 +113,15 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
+              <Link to ="/"></Link>
               <Link to="/#projects" onClick ={handleClick("projects")} className ="smooth">Projects</Link>
               <Link to="/#contact-me" onClick ={handleClick("contactme")} className="smooth" >Contact Me</Link>
             </HStack>
           </nav>
-          <Routes>
+          <Switch>
             <Route path="/#projects" element={<ProjectsSection />}></Route>
             <Route path ="/#contact-me" element={<ContactMeSection />}></Route>
-          </Routes>
+          </Switch>
         </HStack>
       </Box>
     </Box>
